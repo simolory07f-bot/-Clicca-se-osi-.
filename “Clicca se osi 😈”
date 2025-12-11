@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Non cliccare...</title>
+<style>
+  body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  #scare {
+    max-width: 80%;
+    max-height: 80%;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+</style>
+</head>
+<body>
+<h1>Clicca se osi 😈</h1>
+<img id="scare" src="https://i.imgur.com/3M8QZ6Z.png" alt="Horror">
+<audio id="sound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+
+<script>
+  let clicked = false;
+  document.body.addEventListener('click', () => {
+    if (clicked) return; // blocca ulteriori click
+    clicked = true;
+    document.querySelector('h1').style.display = 'none';
+    document.getElementById('scare').style.opacity = 1;
+    document.getElementById('sound').play();
+  });
+</script>
+</body>
+</html>
